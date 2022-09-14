@@ -35,7 +35,12 @@
     <Head title="Dashboard" />
 
     <AuthenticatedLayout>
-        <div class="w-full flex flex-wrap justify-center pt-4 pb-4">
+
+        <!-- <div class=" w-full h-screen z-10 absolute">
+            <div class="bg-black w-3/4 h-4 z-20 mt-20"></div>
+        </div> -->
+
+        <div class="w-full flex flex-wrap justify-center absolute pt-4 pb-4 z-20">
             <div class="w-3/4 justify-center">
                 <LessonCard
                     :title="title"

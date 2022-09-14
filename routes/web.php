@@ -38,4 +38,12 @@ Route::get('/dashboard', function () {
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/achievements', function() {
+    return Inertia('Achievements');
+})->middleware(['auth', 'verified'])->name('achievements');
+
+Route::get('/profile', function() {
+    return Inertia('Profile');
+})->middleware(['auth', 'verified'])->name('profile');
+
 require __DIR__.'/auth.php';
