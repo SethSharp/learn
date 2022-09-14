@@ -12,17 +12,13 @@ defineProps(["title", "description", "image"]);
             <div class="pl-12 pt-8 w-1/2">
                 <img
                     class="border-black border-2 "
-                    src="/images/placeholder.png"
+                    :src="image"
+                    :alt="image"
                 />
             </div>
             <div class="pt-8 w-1/2">
                 <p class="">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Pellentesque elementum erat vitae lorem condimentum, a
-                    rutrum tellus molestie. Proin tincidunt eros sit amet
-                    posuere dapibus. Maecenas fermentum et eros imperdiet
-                    tempor. Sed vestibulum ex leo, ut ultrices tortor cursus
-                    non.
+                    {{description}}
                 </p>
             </div>
         </div>

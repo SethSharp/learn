@@ -1,19 +1,30 @@
-<script setup>
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import { Head } from "@inertiajs/inertia-vue3";
-import LessonCard from "@/Components/LessonCard.vue";
-
-// NOTE:
-/*
-    Lesson data will be loaded and passed through to the grid component
-    When the component is interacted with, the component will handle its own
-    interaction event, but here another event will be made and it will
-    change current lesson data
-*/
-
-// Current lesson data
-defineProps(["curTitle", "curDesc", "curImage"]);
-
+<script>
+    import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+    import LessonCard from '@/Components/LessonCard.vue';
+    import LessonItem from '@/Components/LessonItem.vue';
+    export default {
+        components: { AuthenticatedLayout, LessonCard, LessonItem },
+        props: ['lessonData'],
+        data() {
+            return {
+                'title': 'Default title',
+                'desc': 'Default description',
+                'img': '/images/placeholder.png',
+                'prevSelected': 0
+            }
+        },created() {
+            this.changeLessonCard(0);
+        }, methods: {
+            changeLessonCard: function(index) {
+                this.lessonData[this.prevSelected].selected=false;
+                this.prevSelected = index;
+                this.lessonData[index].selected=true;
+                this.title = this.lessonData[index].title;
+                this.desc = this.lessonData[index].desc;
+                this.img = this.lessonData[index].src;
+            }
+        }
+    }
 </script>
 
 <template>
@@ -22,30 +33,16 @@ defineProps(["curTitle", "curDesc", "curImage"]);
     <AuthenticatedLayout>
         <div class="flex justify-center mt-10">
             <LessonCard
-                :title="curTitle"
-                :description="curDesc"
-                :image="curImage"
+                :title="title"
+                :description="desc"
+                :image="img"
             />
-            <div class="flex">
+        </div>
+        <div class="flex justify-center">
+            <div v-for="(lesson, index) in lessonData"
+                class="">
+                <LessonItem :title="lesson.title" :unlocked="lesson.unlocked" :selected="lesson.selected" v-on:click="changeLessonCard(index)"/>
             </div>
         </div>
     </AuthenticatedLayout>
 </template>
-
-<!-- <template #header>
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Dashboard
-    </h2>
-</template>
-
-<h2> SOmein</h2>
-
-<div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            <div class="p-6 bg-white border-b border-gray-200">
-                You're logged in!
-            </div>
-        </div>
-    </div>
-</div> -->

@@ -24,12 +24,15 @@ Route::get('/', function () {
     ]);
 });
 
-// Rotue::get('/dashboard', function () {
-//     return Inertia::render('Dash')
-// });
-
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    $data = [
+        ['title'=>'Lesson - 1', 'desc'=>'Lesson 1 desc', 'src'=>'/images/placeholder.png', 'selected'=>false, 'unlocked'=>true],
+        ['title'=>'Lesson - 2', 'desc'=>'Lesson 2 desc', 'src'=>'/images/placeholder.png', 'selected'=>false, 'unlocked'=>false],
+        ['title'=>'Lesson - 3', 'desc'=>'Lesson 3 desc', 'src'=>'/images/placeholder.png', 'selected'=>false, 'unlocked'=>false]
+    ];
+    return Inertia('Dashboard', [
+        'lessonData' => $data
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
