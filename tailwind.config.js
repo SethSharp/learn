@@ -18,6 +18,17 @@ module.exports = {
                 sans: ["Nunito", ...defaultTheme.fontFamily.sans],
             },
         },
+        animation: {
+            lockedLvl: "spin 1s",
+        },
+        keyframes: (theme) => ({
+            spin: {
+                "0%": { transform: "rotate(0deg)" },
+                "25%": { transform: "rotate(45deg)" },
+                "50%": { transform: "rotate(-45deg)" },
+                "75%": { transform: "rotate(0deg)" },
+            },
+        }),
     },
 
     plugins: [require("@tailwindcss/forms")],

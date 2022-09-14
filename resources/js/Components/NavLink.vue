@@ -14,7 +14,4 @@ const classes = computed(() => props.active ?
     <a :href="href" :class="classes">
         <slot/>
     </a>
-    <!-- <Link :href="href" :class="classes">
-        <slot />
-    </Link> -->
 </template>
