@@ -8,17 +8,17 @@ defineProps(["title", "description", "image"]);
             <h1 v-if="title">{{ title }}</h1>
             <h1 v-else="title">No lesson title given</h1>
         </div>
-        <div class="flex wrap w-full pb-8">
-            <div class="pl-6 pt-4 w-1/2">
-                <img
-                    class="border-black border-2 "
+        <div class="flex flex-wrap w-full p-3">
+            <div class="w-full md:w-1/2 grid place-items-center mb-4 md:mb-0 p-4 sm:p-0">
+                <img class="border-black border-2"
                     :src="image"
                     :alt="image"
                 />
             </div>
-            <div class="pt-8 w-1/2">
-                <p class="">
-                    {{description}}
+            <div class="w-full md:w-1/2">
+                <p class="px-6 text-center md:text-left">
+                    <!-- {{description}} -->
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris luctus ipsum quis sollicitudin tincidunt. Fusce feugiat nibh sit amet urna ultricies rutrum. Donec pellentesque libero vel turpis laoreet congue. Sed lobortis velit sit amet odio fringilla dapibus. Aliquam odio nisi, vehicula id hendrerit at, scelerisque non velit. Donec bibendum fermentum.
                 </p>
             </div>
         </div>

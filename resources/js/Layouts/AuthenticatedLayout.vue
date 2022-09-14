@@ -21,7 +21,7 @@ const showingNavigationDropdown = ref(false);
                             <!-- Navigation Links -->
                             <div class="space-x-4 my-auto">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Lessons
+                                    Dashboard
                                 </NavLink>
                                 <NavLink :href="route('achievements')" :active="route().current('achievements')">
                                     Achievements
@@ -74,7 +74,7 @@ const showingNavigationDropdown = ref(false);
                 <div class="hidden">
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Lessons
+                            Dashboard
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('achievements')">
                             Achievements
