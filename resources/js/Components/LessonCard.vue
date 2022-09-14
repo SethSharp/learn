@@ -10,6 +10,7 @@ defineProps(["title", "description", "image"]);
         </div>
         <div class="flex flex-wrap w-full p-3">
             <div class="w-full md:w-1/2 grid place-items-center mb-4 md:mb-0 p-4 sm:p-0">
+                <!-- <div class="w-3/4 h-full border-black border-2"> </div> -->
                 <img class="border-black border-2"
                     :src="image"
                     :alt="image"

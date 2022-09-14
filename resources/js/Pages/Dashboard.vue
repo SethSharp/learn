@@ -13,7 +13,11 @@
                 'prevSelected': 0
             }
         },created() {
-            this.changeLessonCard(0);
+            var i = 1;
+            for (; i < this.lessonData.length; i++) {
+                if (this.lessonData[i].unlocked) continue; else break;
+            }
+            this.changeLessonCard(i-1);
         }, methods: {
             changeLessonCard: function(index) {
                 if (!this.lessonData[index].unlocked) {
