@@ -18,7 +18,7 @@
 </script>
 
 <template>
-    <div class="w-32 h-32 m-2 border-2 "
+    <div class="w-32 h-32 m-2 border-2 border-transparent"
         :class="bc"
         >
         <div v-if="selected"
@@ -34,7 +34,6 @@
                 :class="uv"
                 />
             <div v-if="!unlocked" class="absolute z-20">
-                <!-- <div class="bg-black w-32 h-32 absolute opacity-30"></div> -->
                 <img
                     src="/images/lock.png"
                     class="w-16 h-16 my-8 mx-8 hover:animate-lockedLvl"

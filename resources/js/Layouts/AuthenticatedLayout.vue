@@ -12,11 +12,11 @@ const showingNavigationDropdown = ref(false);
 
 <template>
     <div>
-        <div class="min-h-screen">
+        <div class="min-h-screen bg-gray-200 opacity-90">
             <nav class="">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-center h-16 mt-8 mb-6">
+                    <div class="flex justify-center h-16 pt-8 mb-6">
                         <div class="flex">
                             <!-- Navigation Links -->
                             <div class="space-x-4 my-auto">
