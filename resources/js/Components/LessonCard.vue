@@ -21,6 +21,9 @@ defineProps(["title", "description", "image"]);
                     <!-- {{description}} -->
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris luctus ipsum quis sollicitudin tincidunt. Fusce feugiat nibh sit amet urna ultricies rutrum. Donec pellentesque libero vel turpis laoreet congue. Sed lobortis velit sit amet odio fringilla dapibus. Aliquam odio nisi, vehicula id hendrerit at, scelerisque non velit. Donec bibendum fermentum.
                 </p>
+                <button class="bg-orange-500 text-white ml-6 mt-2 px-4 py-2 rounded-lg">
+                    Play
+                </button>
             </div>
         </div>
     </div>

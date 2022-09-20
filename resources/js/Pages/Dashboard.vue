@@ -50,7 +50,7 @@
             <img :src="img" class="blur-md"/>
         </div>
 
-        <div class="w-full flex flex-wrap justify-center relative">
+        <div class="w-full flex flex-wrap justify-center relative mt-8">
             <h1 class="text-4xl w-3/4">
                 Lesson Select
             </h1>
