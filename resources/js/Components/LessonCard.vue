@@ -1,32 +1,25 @@
 <script>
     export default {
-        props: ['title', 'description', 'image', 'pg'],
-        data() {
-            return {
-                'progress': '10%',
-            }
-        }, created() {
-            this.progress = this.pg;
-        }
+        props: ['title', 'description', 'image', 'progress'],
     }
 </script>
 
 <template>
     <div class="">
-        <div class="bg-gray-800 opacity-90 p-4">
+        <div class="dark:bg-gray-800 opacity-90 p-4">
             <h1 v-if="title" class="font-black text-orange-500">{{ title }}</h1>
             <h1 v-else="title" class="font-black">No lesson title given</h1>
         </div>
         <div class="flex flex-wrap w-full p-3 bg-gray-200 opacity-90">
-            <div class="w-full md:w-1/2 grid place-items-center mb-4 md:mb-0 p-4 sm:p-0">
+            <div class="w-full lg:w-1/2 grid place-items-center mb-4 md:mb-0 p-4 sm:p-0">
                 <!-- <div class="w-3/4 h-full border-black border-2"> </div> -->
-                <img class="border-black border-2 z-20"
+                <img class="border-black border-2 z-20 aspect-video"
                     :src="image"
                     :alt="image"
                 />
             </div>
-            <div class="w-full md:w-1/2 p-5">
-                <p class=" text-center md:text-left">
+            <div class="w-full lg:w-1/2 p-5">
+                <p class=" text-center md:text-left p-4">
                     <!-- {{description}} -->
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris luctus ipsum quis sollicitudin tincidunt. Fusce feugiat nibh sit amet urna ultricies rutrum. Donec pellentesque libero vel turpis laoreet congue. Sed lobortis velit sit amet odio fringilla dapibus. Aliquam odio nisi, vehicula id hendrerit at, scelerisque non velit. Donec bibendum fermentum.
                 </p>
@@ -41,7 +34,12 @@
 
                 </div>
                 <button class="bg-orange-500 text-white mt-2 px-4 py-2 rounded-lg">
-                    Play
+                    <p v-if="progress == '0%' || progress == '100%'">
+                        Play
+                    </p>
+                    <p v-else>
+                        Continue
+                    </p>
                 </button>
             </div>
         </div>

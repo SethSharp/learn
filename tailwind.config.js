@@ -20,7 +20,8 @@ module.exports = {
         },
         animation: {
             lockedLvl: "spin 0.5s",
-            pulse: "pulse 4s infinite"
+            pulse: "pulse 4s infinite",
+            opacity: "opac 1s ease-in-out",
         },
         keyframes: (theme) => ({
             spin: {
@@ -34,11 +35,15 @@ module.exports = {
                     opacity: "1",
                 },
                 "50%": {
-                    opacity: ".5",
+                    opacity: ".7",
                 },
                 "100%": {
                     opacity: "1",
-                }
+                },
+            },
+            opac: {
+                "0%": { opacity: "1" },
+                "100%": { opacity: ".5" },
             },
         }),
     },

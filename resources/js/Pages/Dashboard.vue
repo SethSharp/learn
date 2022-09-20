@@ -24,7 +24,9 @@
             this.changeLessonCard(i-1);
         }, methods: {
             changeLessonCard: function(index) {
-                if (!this.lessonData[index].unlocked) return;
+                if (!this.lessonData[index].unlocked) {
+                    this.lessonLocked();
+                    return;}
                 this.lessonData[this.prevSelected].selected=false;
                 this.prevSelected = index;
                 this.lessonData[index].selected=true;
@@ -43,12 +45,8 @@
 <template>
     <AuthenticatedLayout>
 
-        <Popup v-if="popUp" >
-            This level is locked
-        </Popup>
-
-        <div class="w-full h-screen absolute">
-            <img :src="lesson.src" class="blur-md"/>
+        <div class="h-full w-full absolute">
+            <img :src="lesson.src" class="blur-md w-full"/>
         </div>
 
         <div class="w-full flex flex-wrap justify-center relative mt-8">
@@ -63,22 +61,24 @@
                     :title="lesson.title"
                     :description="lesson.desc"
                     :image="lesson.src"
-                    :pg="lesson.progress"
+                    :progress="lesson.progress"
                 />
+                <!-- <Popup v-if="popUp">
+                    This level is locked
+                </Popup> -->
                 <div class="flex flex-wrap pt-4">
 
-                    <div class="flex flex-wrap custom1:w-1/2 justify-center"
-                        @click="lessonLocked()"
-                        >
+                    <div class="flex flex-wrap custom1:w-1/2 justify-center">
                         <LessonItem v-for="(lesson, index) in lessonData"
                                     :unlocked="lesson.unlocked"
                                     :selected="lesson.selected"
                                     v-on:click="changeLessonCard(index)"
                         />
                     </div>
+
                     <div class="custom1:w-1/2 bg-gray-200 opacity-50">
-                        <h1 class="mt-8 ml-12 font-semibold text-3xl"> Placeholder </h1>
-                        <p class="ml-12 pr-4">
+                        <h1 class="mt-4 pl-2 sm:mt-8 sm:px-6 font-semibold text-3xl"> Placeholder </h1>
+                        <p class="pb-2 px-6">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Mauris luctus ipsum quis sollicitudin tincidunt.
                             Fusce feugiat nibh sit amet urna ultricies rutrum.
