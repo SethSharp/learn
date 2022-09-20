@@ -2,15 +2,17 @@
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
     import LessonCard from '@/Components/LessonCard.vue';
     import LessonItem from '@/Components/LessonItem.vue';
+    import Popup from '@/Components/Popup.vue';
     export default {
-        components: { AuthenticatedLayout, LessonCard, LessonItem },
+        components: { AuthenticatedLayout, LessonCard, LessonItem, Popup },
         props: ['lessonData'],
         data() {
             return {
                 'title': 'Default title',
                 'desc': 'Default description',
                 'img': '/images/placeholder.png',
-                'prevSelected': 0
+                'prevSelected': 0,
+                'popUp': false
             }
         },created() {
             var i = 1;
@@ -30,13 +32,18 @@
                 this.title = this.lessonData[index].title;
                 this.desc = this.lessonData[index].desc;
                 this.img = this.lessonData[index].src;
+            },
+            lessonLocked: function() {
+                this.popUp = true;
+                setTimeout(() => {
+                    this.popUp = false;
+                }, 3000);
             }
         }
     }
 </script>
 
 <template>
-    <Head title="Dashboard" />
     <AuthenticatedLayout>
 
         <div class="w-full h-screen absolute">
@@ -57,7 +64,10 @@
                     :image="img"
                 />
                 <div class="flex flex-wrap pt-4">
-                    <div class="flex flex-wrap custom1:w-1/2 justify-center">
+
+                    <div class="flex flex-wrap custom1:w-1/2 justify-center"
+                        @click="lessonLocked()"
+                        >
                         <LessonItem v-for="(lesson, index) in lessonData" :title="lesson.title" :unlocked="lesson.unlocked" :selected="lesson.selected" v-on:click="changeLessonCard(index)"/>
                     </div>
                     <div class="custom1:w-1/2 bg-gray-200 opacity-50">

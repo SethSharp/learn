@@ -1,13 +1,8 @@
 <script setup>
-import { ref } from 'vue';
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import Dropdown from '@/Components/Dropdown.vue';
-import DropdownLink from '@/Components/DropdownLink.vue';
-import NavLink from '@/Components/NavLink.vue';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-import { Link } from '@inertiajs/inertia-vue3';
-
-const showingNavigationDropdown = ref(false);
+    import { ref } from 'vue';
+    import NavLink from '@/Components/NavLink.vue';
+    import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+    const showingNavigationDropdown = ref(false);
 </script>
 
 <template>
@@ -15,11 +10,11 @@ const showingNavigationDropdown = ref(false);
         <div class="min-h-screen bg-gray-200 opacity-90">
             <nav class="">
                 <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-center h-16 pt-8 mb-6">
+                <div class="bg-gray-900">
+                    <div class="flex justify-center h-20 pt-8 mb-8">
                         <div class="flex">
                             <!-- Navigation Links -->
-                            <div class="space-x-4 my-auto">
+                            <div class="space-x-4">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </NavLink>

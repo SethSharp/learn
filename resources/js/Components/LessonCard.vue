@@ -4,8 +4,8 @@ defineProps(["title", "description", "image"]);
 
 <template>
     <div class="">
-        <div class="bg-gray-300 opacity-90 p-4">
-            <h1 v-if="title" class="font-black">{{ title }}</h1>
+        <div class="bg-gray-900 opacity-90 p-4">
+            <h1 v-if="title" class="font-black text-orange-500">{{ title }}</h1>
             <h1 v-else="title" class="font-black">No lesson title given</h1>
         </div>
         <div class="flex flex-wrap w-full p-3 bg-gray-200 opacity-90">

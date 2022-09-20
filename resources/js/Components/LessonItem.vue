@@ -1,4 +1,5 @@
 <script>
+    import { computed } from 'vue';
     export default {
         props: ['selected', 'unlocked'],
         data() {
@@ -11,26 +12,30 @@
         }, created() {
             if (this.unlocked) {
                 this.uv = 'blur-none'
-                this.bc = 'hover:border-black'
+                const hv = computed(() => this.selected ?
+                    'hover:border-gray-700' :
+                    'hover:border-black'
+                )
+                this.bc = hv
             }
         }
     }
 </script>
 
 <template>
-    <div class="w-32 h-32 m-2 border-2 border-transparent"
+    <div class="w-32 h-32 m-2 border-2 border-transparent rounded-lg"
         :class="bc"
         >
         <div v-if="selected"
-            class="border-2 border-black"
+            class="border-2 animate-pulse rounded-lg"
             v-on:click="updateIsSelected"
             >
             <img src="/images/placeholder_2.png"/>
         </div>
         <!-- Not selected and locked levels -->
-        <div v-else class="relative">
+        <div v-else class="relative rounded-lg">
             <img src="/images/placeholder_2.png"
-                class="absolute w-32 h-30"
+                class="border-2 absolute w-32 h-30 rounded-lg"
                 :class="uv"
                 />
             <div v-if="!unlocked" class="absolute z-20">

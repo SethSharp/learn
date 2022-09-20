@@ -19,14 +19,26 @@ module.exports = {
             },
         },
         animation: {
-            lockedLvl: "spin 1s",
+            lockedLvl: "spin 0.5s",
+            pulse: "pulse 4s infinite"
         },
         keyframes: (theme) => ({
             spin: {
                 "0%": { transform: "rotate(0deg)" },
-                "25%": { transform: "rotate(45deg)" },
-                "50%": { transform: "rotate(-45deg)" },
+                "25%": { transform: "rotate(15deg)" },
+                "50%": { transform: "rotate(-15deg)" },
                 "75%": { transform: "rotate(0deg)" },
+            },
+            pulse: {
+                "0%": {
+                    opacity: "1",
+                },
+                "50%": {
+                    opacity: ".5",
+                },
+                "100%": {
+                    opacity: "1",
+                }
             },
         }),
     },
