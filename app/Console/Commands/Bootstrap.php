@@ -39,14 +39,14 @@ class Bootstrap extends Command
 
         foreach ($courses as $data) {
             // TODO: firstOrCreate
-            $course = Course::create([
+            $course = Course::firstOrCreate([
                'name' => $data['name'],
                'description' => $data['description'],
             ]);
 
             foreach ($data['lessons'] as $index => $lesson) {
                 // TODO: firstOrCreate
-                $course->lessons()->create([
+                $course->lessons()->firstOrCreate([
                     'index' => $index + 1,
                 ]);
             }
