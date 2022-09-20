@@ -30,8 +30,15 @@
                     <!-- {{description}} -->
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris luctus ipsum quis sollicitudin tincidunt. Fusce feugiat nibh sit amet urna ultricies rutrum. Donec pellentesque libero vel turpis laoreet congue. Sed lobortis velit sit amet odio fringilla dapibus. Aliquam odio nisi, vehicula id hendrerit at, scelerisque non velit. Donec bibendum fermentum.
                 </p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                    <div class="bg-green-400 h-2.5 rounded-full" :style="{'width':progress}"></div>
+                <div class="w-full">
+
+                    <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+                        <div class="bg-green-400 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+                            :style="{'width':progress}">
+                            {{progress}}
+                        </div>
+                    </div>
+
                 </div>
                 <button class="bg-orange-500 text-white mt-2 px-4 py-2 rounded-lg">
                     Play

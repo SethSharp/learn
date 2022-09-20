@@ -1,10 +1,10 @@
 <script>
-    import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+    import Popup from '@/Components/Popup.vue';
     import LessonCard from '@/Components/LessonCard.vue';
     import LessonItem from '@/Components/LessonItem.vue';
-    import Popup from '@/Components/Popup.vue';
+    import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
     export default {
-        components: { AuthenticatedLayout, LessonCard, LessonItem, Popup },
+        components: { AuthenticatedLayout, LessonCard, LessonItem, Popup, Popup },
         props: ['lessonData'],
         data() {
             return {
@@ -42,6 +42,10 @@
 
 <template>
     <AuthenticatedLayout>
+
+        <Popup v-if="popUp" >
+            This level is locked
+        </Popup>
 
         <div class="w-full h-screen absolute">
             <img :src="lesson.src" class="blur-md"/>
