@@ -1,10 +1,19 @@
-<script setup>
-defineProps(["title", "description", "image"]);
+<script>
+    export default {
+        props: ['title', 'description', 'image', 'pg'],
+        data() {
+            return {
+                'progress': '10%',
+            }
+        }, created() {
+            this.progress = this.pg;
+        }
+    }
 </script>
 
 <template>
     <div class="">
-        <div class="bg-gray-900 opacity-90 p-4">
+        <div class="bg-gray-800 opacity-90 p-4">
             <h1 v-if="title" class="font-black text-orange-500">{{ title }}</h1>
             <h1 v-else="title" class="font-black">No lesson title given</h1>
         </div>
@@ -16,12 +25,15 @@ defineProps(["title", "description", "image"]);
                     :alt="image"
                 />
             </div>
-            <div class="w-full md:w-1/2 ">
-                <p class="px-6 text-center md:text-left">
+            <div class="w-full md:w-1/2 p-5">
+                <p class=" text-center md:text-left">
                     <!-- {{description}} -->
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris luctus ipsum quis sollicitudin tincidunt. Fusce feugiat nibh sit amet urna ultricies rutrum. Donec pellentesque libero vel turpis laoreet congue. Sed lobortis velit sit amet odio fringilla dapibus. Aliquam odio nisi, vehicula id hendrerit at, scelerisque non velit. Donec bibendum fermentum.
                 </p>
-                <button class="bg-orange-500 text-white ml-6 mt-2 px-4 py-2 rounded-lg">
+                <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                    <div class="bg-green-400 h-2.5 rounded-full" :style="{'width':progress}"></div>
+                </div>
+                <button class="bg-orange-500 text-white mt-2 px-4 py-2 rounded-lg">
                     Play
                 </button>
             </div>

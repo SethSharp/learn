@@ -11,8 +11,10 @@
                 'title': 'Default title',
                 'desc': 'Default description',
                 'img': '/images/placeholder.png',
+                'progress': '0%',
                 'prevSelected': 0,
-                'popUp': false
+                'popUp': false,
+                'lesson': ''
             }
         },created() {
             var i = 1;
@@ -22,16 +24,11 @@
             this.changeLessonCard(i-1);
         }, methods: {
             changeLessonCard: function(index) {
-                if (!this.lessonData[index].unlocked) {
-                    // TODO: Some on screen msg to alert player they cannot select...
-                    return;
-                }
+                if (!this.lessonData[index].unlocked) return;
                 this.lessonData[this.prevSelected].selected=false;
                 this.prevSelected = index;
                 this.lessonData[index].selected=true;
-                this.title = this.lessonData[index].title;
-                this.desc = this.lessonData[index].desc;
-                this.img = this.lessonData[index].src;
+                this.lesson = this.lessonData[index];
             },
             lessonLocked: function() {
                 this.popUp = true;
@@ -47,7 +44,7 @@
     <AuthenticatedLayout>
 
         <div class="w-full h-screen absolute">
-            <img :src="img" class="blur-md"/>
+            <img :src="lesson.src" class="blur-md"/>
         </div>
 
         <div class="w-full flex flex-wrap justify-center relative mt-8">
@@ -59,16 +56,21 @@
         <div class="w-full flex flex-wrap justify-center relative pt-4 pb-4 z-20">
             <div class="w-3/4 justify-center">
                 <LessonCard
-                    :title="title"
-                    :description="desc"
-                    :image="img"
+                    :title="lesson.title"
+                    :description="lesson.desc"
+                    :image="lesson.src"
+                    :pg="lesson.progress"
                 />
                 <div class="flex flex-wrap pt-4">
 
                     <div class="flex flex-wrap custom1:w-1/2 justify-center"
                         @click="lessonLocked()"
                         >
-                        <LessonItem v-for="(lesson, index) in lessonData" :title="lesson.title" :unlocked="lesson.unlocked" :selected="lesson.selected" v-on:click="changeLessonCard(index)"/>
+                        <LessonItem v-for="(lesson, index) in lessonData"
+                                    :unlocked="lesson.unlocked"
+                                    :selected="lesson.selected"
+                                    v-on:click="changeLessonCard(index)"
+                        />
                     </div>
                     <div class="custom1:w-1/2 bg-gray-200 opacity-50">
                         <h1 class="mt-8 ml-12 font-semibold text-3xl"> Placeholder </h1>
@@ -85,7 +87,5 @@
                 </div>
             </div>
         </div>
-
-
     </AuthenticatedLayout>
 </template>
