@@ -43,16 +43,32 @@
     }
 </script>
 
+<style>
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.75s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+</style>
+
 <template>
     <AuthenticatedLayout>
 
         <div class="h-full w-full absolute">
-            <img :src="lesson.src" class="blur-md w-full"/>
+            <transition name="fade" mode="out-in">
+                <div :key="lesson.src">
+                    <img :src="lesson.src" class="blur-md w-full" />
+                </div>
+            </transition>
         </div>
 
         <div class="w-full flex flex-wrap justify-center relative mt-8">
             <h1 class="text-5xl w-3/4 font-title font-extrabold">
-                Lesson Select
+                lesson select
             </h1>
         </div>
 
@@ -68,7 +84,6 @@
                     This level is locked
                 </Popup> -->
                 <div class="flex flex-wrap pt-4">
-
                     <div class="flex flex-wrap custom1:w-1/2 justify-center">
                         <LessonItem v-for="(lesson, index) in lessonData"
                                     :unlocked="lesson.unlocked"

@@ -4,6 +4,8 @@
     }
 </script>
 
+
+
 <template>
     <div class="">
         <div class="dark:bg-gray-800 opacity-90 p-4">
@@ -12,11 +14,16 @@
         </div>
         <div class="flex flex-wrap w-full p-3 bg-gray-200 opacity-90">
             <div class="w-full lg:w-1/2 grid place-items-center mb-4 md:mb-0 p-4 sm:p-0">
-                <!-- <div class="w-3/4 h-full border-black border-2"> </div> -->
-                <img class="border-black border-2 z-20 aspect-video"
-                    :src="image"
-                    :alt="image"
-                />
+
+                <transition name="fade" mode="out-in">
+                    <div :key="image">
+                        <img class="border-black border-2 z-20 aspect-video"
+                            :src="image"
+                            :alt="image"
+                        />
+                    </div>
+                </transition>
+
             </div>
             <div class="w-full lg:w-1/2 sm:p-5">
                 <p class="text-center md:text-left px-2">
