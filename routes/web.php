@@ -39,7 +39,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/achievements', function() {
-    return Inertia('Achievements');
+    $data = [
+        ['title'=>'Hello there', 'desc'=>'Wake up in the facility', 'date'=>'21/9/22'],
+        ['title'=>'You got a friend in me', 'desc'=>'Find your buddy codybot', 'date'=>'21/9/22'],
+        ['title'=>'Light the way', 'desc'=>'Turn the lights on', 'date'=>'22/9/22'],
+        ['title'=>'We aren`t alone...', 'desc'=>'Discover the dead...undead body', 'date'=>'22/9/22'],
+    ];
+    return Inertia('Achievements',[
+        'achievementData' => $data
+    ]);
 })->middleware(['auth', 'verified'])->name('achievements');
 
 Route::get('/profile', function() {
