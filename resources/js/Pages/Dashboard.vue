@@ -76,8 +76,8 @@
                         />
                     </div>
 
-                    <div class="custom1:w-1/2 bg-gray-200 opacity-50">
-                        <h1 class="mt-4 pl-2 sm:mt-8 sm:px-6 font-semibold text-3xl"> Placeholder </h1>
+                    <div class="custom1:w-1/2 bg-gray-200 opacity-50 sm:mt-3">
+                        <h1 class="mt-2 pl-2 sm:mt-8 sm:px-6 font-semibold text-3xl"> Placeholder </h1>
                         <p class="pb-2 px-6">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Mauris luctus ipsum quis sollicitudin tincidunt.
