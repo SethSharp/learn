@@ -9,7 +9,7 @@ return new class() extends Migration {
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('course_id');
+            $table->foreignId('course_id');
             $table->smallInteger('index');
             $table->timestamps();
             $table->softDeletes();
