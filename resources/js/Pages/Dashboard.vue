@@ -46,12 +46,12 @@
 <style>
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.75s ease;
+    transition: opacity 0.5s ease-out;
 }
 
 .fade-enter-from,
 .fade-leave-to {
-    opacity: 0;
+    opacity: 0.1;
 }
 </style>
 
