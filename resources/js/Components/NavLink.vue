@@ -10,7 +10,7 @@
 </script>
 
 <template>
-    <a :href="href" :class="classes">
+    <a :href="href" :class="classes" class="font-title font-bold">
         <slot/>
     </a>
 </template>

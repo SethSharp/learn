@@ -15,7 +15,8 @@ module.exports = {
                 custom1: "888px",
             },
             fontFamily: {
-                sans: ["Nunito", ...defaultTheme.fontFamily.sans],
+                sans: [ "Nunito", ...defaultTheme.fontFamily.sans,],
+                        "title": ['Megrim']
             },
         },
         animation: {

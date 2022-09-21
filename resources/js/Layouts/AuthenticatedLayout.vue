@@ -7,11 +7,16 @@ import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/inertia-vue3';
 const showingNavigationDropdown = ref(false);
+
 </script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Megrim&display=swap');
+</style>
 
 <template>
     <div>
-        <div class="min-h-screen bg-gray-500">
+        <div class="min-h-screen ">
             <nav class="bg-gray-900">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

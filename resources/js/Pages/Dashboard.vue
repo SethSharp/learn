@@ -1,4 +1,5 @@
 <script>
+
     import Popup from '@/Components/Popup.vue';
     import LessonCard from '@/Components/LessonCard.vue';
     import LessonItem from '@/Components/LessonItem.vue';
@@ -50,7 +51,7 @@
         </div>
 
         <div class="w-full flex flex-wrap justify-center relative mt-8">
-            <h1 class="text-4xl w-3/4">
+            <h1 class="text-5xl w-3/4 font-title font-extrabold">
                 Lesson Select
             </h1>
         </div>
