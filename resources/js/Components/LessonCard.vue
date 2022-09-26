@@ -4,8 +4,6 @@
     }
 </script>
 
-
-
 <template>
     <div class="">
         <div class="dark:bg-gray-800 opacity-90 p-4">
@@ -46,7 +44,7 @@
                 </div>
 
                 <div class="w-full px-2">
-                    <button class="bg-orange-500 text-white rounded-lg py-2 px-4">
+                    <button class="bg-red-500 text-white rounded-lg py-2 px-4">
                         <p v-if="progress == '0%' || progress == '100%'">
                             Play
                         </p>

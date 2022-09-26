@@ -56,6 +56,9 @@
 </style>
 
 <template>
+
+
+
     <AuthenticatedLayout>
 
         <div class="h-full w-full absolute">
