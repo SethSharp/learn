@@ -25,16 +25,16 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+    $title = 'Find your way out';
     $data = [
         ['title'=>'Lesson - 1', 'desc'=>'Lesson 1 desc', 'src'=>'/images/tmpBackground_2.jfif', 'selected'=>false, 'unlocked'=>true, 'progress' => '100%'],
         ['title'=>'Lesson - 2', 'desc'=>'Lesson 2 desc', 'src'=>'/images/tmpBackground.jpg', 'selected'=>false, 'unlocked'=>true, 'progress' => '90%'],
         ['title'=>'Lesson - 3', 'desc'=>'Lesson 3 desc', 'src'=>'/images/tmpBackground.jpg', 'selected'=>false, 'unlocked'=>true, 'progress' => '0%'],
         ['title'=>'Lesson - 4', 'desc'=>'Lesson 4 desc', 'src'=>'/images/tmpBackground.jpg', 'selected'=>false, 'unlocked'=>false, 'progress' => '0%'],
-        ['title'=>'Lesson - 5', 'desc'=>'Lesson 5 desc', 'src'=>'/images/tmpBackground.jpg', 'selected'=>false, 'unlocked'=>false, 'progress' => '0%'],
-        ['title'=>'Lesson - 6', 'desc'=>'Lesson 6 desc', 'src'=>'/images/tmpBackground.jpg', 'selected'=>false, 'unlocked'=>false, 'progress' => '0%']
     ];
     return Inertia('Dashboard', [
-        'lessonData' => $data
+        'lessonData' => $data,
+        'courseTitle' => $title
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 

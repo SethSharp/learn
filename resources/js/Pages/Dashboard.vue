@@ -6,7 +6,7 @@
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
     export default {
         components: { AuthenticatedLayout, LessonCard, LessonItem, Popup, Popup },
-        props: ['lessonData'],
+        props: ['lessonData', 'courseTitle'],
         data() {
             return {
                 'title': 'Default title',
@@ -56,9 +56,6 @@
 </style>
 
 <template>
-
-
-
     <AuthenticatedLayout>
 
         <div class="h-full w-full absolute">
@@ -71,7 +68,7 @@
 
         <div class="w-full flex flex-wrap justify-center relative mt-8">
             <h1 class="text-5xl w-3/4 font-title font-extrabold">
-                lesson select
+                {{ courseTitle }}
             </h1>
         </div>
 
@@ -87,25 +84,12 @@
                     This level is locked
                 </Popup> -->
                 <div class="flex flex-wrap pt-4">
-                    <div class="flex flex-wrap custom1:w-1/2 justify-center">
+                    <div class="flex flex-wrap w-full justify-center">
                         <LessonItem v-for="(lesson, index) in lessonData"
                                     :unlocked="lesson.unlocked"
                                     :selected="lesson.selected"
                                     v-on:click="changeLessonCard(index)"
                         />
-                    </div>
-
-                    <div class="custom1:w-1/2 bg-gray-200 opacity-50 sm:mt-3">
-                        <h1 class="mt-2 pl-2 sm:mt-8 sm:px-6 font-semibold text-3xl"> Placeholder </h1>
-                        <p class="pb-2 px-6">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Mauris luctus ipsum quis sollicitudin tincidunt.
-                            Fusce feugiat nibh sit amet urna ultricies rutrum.
-                            Donec pellentesque libero vel turpis laoreet congue.
-                            Sed lobortis velit sit amet odio fringilla dapibus.
-                            Aliquam odio nisi, vehicula id hendrerit at, scelerisque non velit.
-                            Donec bibendum fermentum.
-                        </p>
                     </div>
                 </div>
             </div>
