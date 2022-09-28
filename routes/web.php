@@ -1,19 +1,9 @@
 <?php
 
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\ShowLessons;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -24,22 +14,15 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    $title = 'Find your way out';
-    $data = [
-        ['title'=>'Lesson - 1', 'desc'=>'Lesson 1 desc', 'src'=>'/images/tmpBackground_2.jfif', 'selected'=>false, 'unlocked'=>true, 'progress' => '100%'],
-        ['title'=>'Lesson - 2', 'desc'=>'Lesson 2 desc', 'src'=>'/images/tmpBackground.jpg', 'selected'=>false, 'unlocked'=>true, 'progress' => '90%'],
-        ['title'=>'Lesson - 3', 'desc'=>'Lesson 3 desc', 'src'=>'/images/tmpBackground.jpg', 'selected'=>false, 'unlocked'=>true, 'progress' => '0%'],
-        ['title'=>'Lesson - 4', 'desc'=>'Lesson 4 desc', 'src'=>'/images/tmpBackground.jpg', 'selected'=>false, 'unlocked'=>false, 'progress' => '0%'],
-    ];
-    return Inertia('Dashboard', [
-        'lessonData' => $data,
-        'courseTitle' => $title
-    ]);
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::prefix('courses')->name('courses.')->group(function() {
+    Route::middleware(['auth'])->group(function() {
+        Route::get('/{course}/lessons', ShowLessons::class)->name('lessons.show');
+    });
+});
 
 Route::get('/achievements', function() {
-    return Inertia('Achievements');
+    return Inertia::render('Achievements');
 })->middleware(['auth', 'verified'])->name('achievements');
 
 Route::get('/profile', function() {

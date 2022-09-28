@@ -5,7 +5,5 @@
     }
 </script>
 <template>
-    <AuthenticatedLayout>
-        <p> This is profile </p>
-    </AuthenticatedLayout>
+    <p> This is profile </p>
 </template>
