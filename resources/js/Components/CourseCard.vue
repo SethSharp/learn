@@ -4,7 +4,7 @@
 
 
 <template>
-    <div class="bg-card rounded-3xl">
+    <div class="bg-card rounded-3xl mx-4 my-4">
         <div class="grid grid-cols-1 grid-rows-2 p-4">
             <div class="">
                 <!-- <p class="bg-orange font-white px-3 w-22"> Beginner </p> -->
