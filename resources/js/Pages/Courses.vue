@@ -1,6 +1,7 @@
 <script setup>
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import CourseCard from '@/Components/CourseCard.vue';
+import { Head} from '@inertiajs/inertia-vue3';
     let props = defineProps(['courses']);
 </script>
 

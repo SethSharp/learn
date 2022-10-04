@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LogoutController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
@@ -33,5 +34,7 @@ Route::prefix('courses')->name('courses.')->group(function() {
         Route::get('/', ShowCoursesController::class)->name('courses.show');
     });
 });
+
+Route::get('/logout', [LogoutController::class, 'perform'])->middleware('auth', 'verified');
 
 require __DIR__.'/auth.php';
