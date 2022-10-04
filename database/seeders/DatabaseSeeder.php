@@ -21,6 +21,21 @@ class DatabaseSeeder extends Seeder
             'email' => 'student@codinglabs-learn.test',
         ]);
 
+        \App\Models\Course::factory()->create([
+            'name'=>'Laracast',
+            'description'=>'Interactive game to learn laravel'
+        ]);
+
+        \App\Models\Course::factory()->create([
+            'name'=>'Vue Raider',
+            'description'=>'Interactive game to learn vue'
+        ]);
+
+        \App\Models\Course::factory()->create([
+            'name'=>'Inertia',
+            'description'=>'Interactive game to learn intertia'
+        ]);
+
         Artisan::call(Bootstrap::class);
     }
 }

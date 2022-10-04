@@ -18,6 +18,7 @@ module.exports = {
                 backgroundFrom: "#030B10",
                 backgroundTo: "#071A25",
                 orange: "#F8590A",
+                card: "#0F1A25",
             },
         },
     },
