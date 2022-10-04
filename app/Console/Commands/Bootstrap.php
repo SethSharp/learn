@@ -61,6 +61,8 @@ class Bootstrap extends Command
 
             foreach ($data['lessons'] as $index => $lesson) {
                 $course->lessons()->firstOrCreate([
+                    'name' => $lesson['name'],
+                    'description' => $lesson['description'],
                     'index' => $index + 1,
                 ]);
             }

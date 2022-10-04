@@ -10,8 +10,11 @@ use Illuminate\Http\Request;
 class ShowCourseLessonsController extends Controller
 {
     public function __invoke($course_id): Response {
-        $lessons = Lesson::all()->where('course_id', $course_id);
+        $lessons = Lesson::all()->where('course_id', $course_id)->toArray();
+        // dd($lessons);
         return Inertia('Lessons', [
+            //TODO: name as slug (not id)
+            'name' => $course_id,
             'lessons' => $lessons
         ]);
     }

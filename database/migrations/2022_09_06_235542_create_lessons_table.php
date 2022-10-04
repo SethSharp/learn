@@ -11,6 +11,8 @@ return new class() extends Migration {
             $table->id();
             $table->foreignId('course_id');
             $table->smallInteger('index');
+            $table->text('name');
+            $table->text('description');
             $table->timestamps();
             $table->softDeletes();
         });

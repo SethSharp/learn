@@ -1,12 +1,13 @@
 <script setup>
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
     import LessonCard from '../Components/LessonCard.vue';
-    const props = defineProps(['lessons']);
+    const props = defineProps(['name','lessons']);
+    console.log(props.lessons);
 </script>
 
 <template>
     <AuthenticatedLayout>
-        <h1 class="text-white text-4xl font-bold mx-12 py-6"> Larascape </h1>
+        <h1 class="text-white text-4xl font-bold mx-12 py-6"> {{ name }} </h1>
         <div class="bg-card rounded-3xl mx-12 display flex flex-wrap justify-center p-4">
             <div class="bg-black rounded-3xl h-32 w-1/5"> </div>
             <div class="w-4/5">
@@ -16,7 +17,7 @@
                         <div class="p-4">
                             <div class="grid grid-rows-2 text-left">
                                 <p class="text-cardText text-md"> Lessons </p>
-                                <p class="text-gray-300 text-sm"> 12 lessons </p>
+                                <p class="text-gray-300 text-sm">{{ lessons.length }} Lessons </p>
                             </div>
                         </div>
                         <div class="p-4">
@@ -36,7 +37,7 @@
         </div>
         <div class="mx-12 display flex flex-wrap pt-8">
             <div class="dispaly flex flex-wrap w-3/5">
-                <LessonCard v-for="lesson in lessons" />
+                <LessonCard v-for="lesson in lessons" :name="lesson.name"/>
             </div>
             <div class="w-2/5 pt-3">
                 <h1 class="text-cardText text-lg"> Lesson 1 </h1>

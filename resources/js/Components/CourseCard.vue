@@ -10,8 +10,7 @@
                 <div class="">
                     <!-- <p class="bg-orange font-white px-3 w-22"> Beginner </p> -->
                     <!-- Temp image -->
-                    <div class="bg-black rounded-3xl w-full h-40">
-                    </div>
+                    <div class="bg-black rounded-3xl w-full h-40"> </div>
                 </div>
                 <div class="pt-8">
                     <h1 class="text-white text-lg"> {{ name }} </h1>
