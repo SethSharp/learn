@@ -4,7 +4,8 @@
 </script>
 
 <template>
-    <div>
+    <!--  -->
+    <div class="bg-gradient-to-br from-backgroundFrom to-backgroundTo">
         <div class="min-h-screen">
             <nav class="">
                 <!-- Primary Navigation Menu -->

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ShowCourseLessonsController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
@@ -32,6 +33,7 @@ Route::get('/dashboard', function () {
 Route::prefix('courses')->name('courses.')->group(function() {
     Route::middleware(['auth'])->group(function() {
         Route::get('/', ShowCoursesController::class)->name('courses.show');
+        Route::get('/{id}/lessons', ShowCourseLessonsController::class)->name('courses.lessons');
     });
 });
 

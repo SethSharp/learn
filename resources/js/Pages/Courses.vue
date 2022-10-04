@@ -11,12 +11,12 @@ import {ref} from 'vue';
 </script>
 
 <template>
-    <div class="bg-gradient-to-br from-backgroundFrom to-backgroundTo">
-        <AuthenticatedLayout>
-            <h1 class="text-white text-4xl font-bold mx-12 py-6"> All courses</h1>
-            <div class="display flex justify-center md:justify-start flex-wrap mx-12">
-                <CourseCard v-for="course in courses" :name="course.name" :lessonCount="course.lessons_count" :userCount="course.user_count"/>
-            </div>
-        </AuthenticatedLayout>
-    </div>
+    <AuthenticatedLayout>
+        <h1 class="text-white text-4xl font-bold mx-12 py-6"> All courses</h1>
+        <div class="display flex justify-center md:justify-start flex-wrap mx-12">
+            <CourseCard v-for="(course, index) in courses"
+                        :name="course.name" :lessonCount="course.lessons_count"
+                        :userCount="course.user_count" :id="course.id"/>
+        </div>
+    </AuthenticatedLayout>
 </template>

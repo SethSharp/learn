@@ -19,6 +19,7 @@ module.exports = {
                 backgroundTo: "#071A25",
                 orange: "#F8590A",
                 card: "#0F1A25",
+                cardText: "#7398BD",
             },
         },
     },
