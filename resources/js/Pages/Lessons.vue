@@ -1,8 +1,16 @@
 <script setup>
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
     import LessonCard from '../Components/LessonCard.vue';
+    import {ref} from "vue";
     const props = defineProps(['name','lessons']);
-    console.log(props.lessons);
+    var placeholderName = ref('Default name');
+    var placeholderDesc = ref('Default desc');
+    const changePlaceholder = (i) => {
+        placeholderName.value = props.lessons[i].name;
+        placeholderDesc.value = props.lessons[i].description;
+    }
+
+    changePlaceholder(1);
 </script>
 
 <template>
@@ -37,11 +45,11 @@
         </div>
         <div class="mx-12 display flex flex-wrap pt-8">
             <div class="dispaly flex flex-wrap w-3/5">
-                <LessonCard v-for="lesson in lessons" :name="lesson.name"/>
+                <LessonCard v-for="(lesson, index) in lessons" @click="changePlaceholder(index)" :name="lesson.name"/>
             </div>
             <div class="w-2/5 pt-3">
-                <h1 class="text-cardText text-lg"> Lesson 1 </h1>
-                <p class="text-gray-300 text-md"> Lesson description</p>
+                <h1 class="text-cardText text-lg"> {{ placeholderName }} </h1>
+                <p class="text-gray-300 text-md"> {{ placeholderDesc }} </p>
             </div>
         </div>
     </AuthenticatedLayout>
