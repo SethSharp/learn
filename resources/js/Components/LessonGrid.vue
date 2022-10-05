@@ -1,14 +1,14 @@
 <script setup>
-    import LessonCard from '../Components/LessonCard.vue';
     import {ref} from "vue";
+    import LessonCard from "./LessonCard.vue";
     const props = defineProps(['userAuth','name','lessons']);
     var placeholderName = ref('Default name');
     var placeholderDesc = ref('Default desc');
     const changePlaceholder = (i) => {
         placeholderName.value = props.lessons[i].name;
         placeholderDesc.value = props.lessons[i].description;
-    }
-    changePlaceholder(1);
+    };
+    changePlaceholder(0);
 </script>
 
 <style>
@@ -34,7 +34,7 @@
                     <div class="p-4">
                         <div class="grid grid-rows-2 text-left">
                             <p class="text-cardText text-md"> Lessons </p>
-                            <p class="text-gray-300 text-sm">{{ lessons.length }} Lessons </p>
+                            <p class="text-gray-300 text-sm"> {{ lessons.length }} Lessons </p>
                         </div>
                     </div>
                     <div class="p-4">
@@ -55,7 +55,7 @@
     </div>
     <div class="mx-12 display flex flex-wrap pt-8">
         <div class="dispaly flex flex-wrap w-3/5">
-            <LessonCard v-for="(lesson, index) in lessons" @click="changePlaceholder(index)" :name="lesson.name" />
+            <LessonCard v-for="(lesson, index) in lessons" @click="changePlaceholder(index)"/>
         </div>
         <div class="w-2/5 pt-3">
             <transition name="fade" mode="out-in">

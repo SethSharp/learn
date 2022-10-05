@@ -30,7 +30,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::prefix('dashboard')->name('dashboard')->group(function() {
+Route::prefix('/dashboard')->name('dashboard')->group(function() {
     Route::middleware(['auth'])->group(function() {
         Route::get('/profile', ShowProfileController::class);
         Route::get('/mycourses', ShowMyCoursesController::class)->name('.courses');
@@ -38,13 +38,20 @@ Route::prefix('dashboard')->name('dashboard')->group(function() {
     });
 });
 
-Route::prefix('courses')->name('courses.')->group(function() {
+Route::get('/logout', [LogoutController::class, 'perform'])->middleware('auth', 'verified');
+
+Route::prefix('/courses')->name('courses.')->group(function () {
     Route::middleware(['auth'])->group(function() {
-        Route::get('/', ShowCoursesController::class)->name('courses.show');
-        Route::get('/{id}/lessons', ShowCourseLessonsController::class)->name('courses.lessons');
+        Route::get('/all', ShowCoursesController::class)->name('course.show');
+        Route::get('/all/{id}/lessons', ShowCourseLessonsController::class)->name('course.lessons');
+    });
+    Route::middleware('auth')->prefix('/{course}/lessons')->name('.lessons')->group(function () {
+        Route::get('{lesson}', \App\Http\Controllers\Lessons\ShowLessonController::class)->name('.show');
+        Route::post('{lesson}/save', \App\Http\Controllers\Lessons\SaveLessonController::class)->name('s.ave');
+        Route::get('{lesson}/load', \App\Http\Controllers\Lessons\LoadLessonController::class)->name('.load');
     });
 });
 
-Route::get('/logout', [LogoutController::class, 'perform'])->middleware('auth', 'verified');
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';

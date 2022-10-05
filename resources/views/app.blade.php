@@ -8,7 +8,9 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="shortcut icon" href="{{asset('unityBuild/TemplateData/favicon.ico')}}">
 
+        <link rel="stylesheet" href="{{asset('unityBuild/TemplateData/style.css')}}">
         <!-- Scripts -->
         @routes
         @vite('resources/js/app.js')
