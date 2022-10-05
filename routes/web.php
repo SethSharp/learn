@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ShowDashboardController;
 use App\Http\Controllers\ShowCourseLessonsController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ShowCoursesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,9 +28,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', ShowDashboardController::class)->middleware('auth', 'verified')->name('dashboard');
 
 Route::prefix('courses')->name('courses.')->group(function() {
     Route::middleware(['auth'])->group(function() {

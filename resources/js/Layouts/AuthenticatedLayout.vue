@@ -1,54 +1,36 @@
 <script setup>
-    import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-    import { Link } from '@inertiajs/inertia-vue3';
+import CourseCard from '@/Components/CourseCard.vue';
+
+    const props = defineProps(['lessons'])
+    var selected = 'profile';
 </script>
 
 <template>
-    <!--  -->
-    <div class="bg-gradient-to-br from-backgroundFrom to-backgroundTo">
-        <div class="min-h-screen">
-            <nav class="">
-                <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between h-16">
-                        <div class="flex">
-                            <!-- Logo -->
-                            <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
-                                    <ApplicationLogo class="block h-9 w-auto" />
-                                </Link>
-                            </div>
-                        </div>
-
-                        <div class="sm:flex sm:items-center sm:ml-6">
-                            <div class="ml-3 relative">
-                                <span class="inline-flex rounded-md">
-                                    <button type="button"
-                                            class=" inline-flex items-center px-3 py-2
-                                                    border border-transparent text-sm leading-4 font-medium rounded-md
-                                                    text-white bg-orange hover:text-backgroundFrom
-                                                    focus:outline-none transition ease-in-out duration-150">
-                                        <Link :href="route('logout')">
-                                            Logout
-                                        </Link>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <!-- Page Heading -->
-            <header class="bg-white shadow" v-if="$slots.header">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <slot name="header" />
-                </div>
-            </header>
-
-            <!-- Page Content -->
-            <main>
-                <slot />
-            </main>
-        </div>
+    <div>
+        <ul
+            class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+            <li class="mr-2">
+                <a href="#"
+                    class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">
+                    Profile
+                </a>
+            </li>
+            <li class="mr-2">
+                <a href="#"
+                    class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">
+                    My Courses
+                </a>
+            </li>
+            <li class="mr-2">
+                <a href="#"
+                    class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">
+                    Achievements
+                </a>
+            </li>
+        </ul>
     </div>
+
+    <main>
+        <CourseCard name="Larascape" :lessonCount="4" :userCount="100" :id="1"/>
+    </main>
 </template>
