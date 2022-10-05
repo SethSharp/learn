@@ -1,11 +1,12 @@
 <script setup>
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
     import Header from '@/Layouts/Header.vue';
-    const props = defineProps(['lessons']);
 </script>
 
 <template>
     <Header>
-        <AuthenticatedLayout :lessons="lessons"/>
+        <AuthenticatedLayout>
+            <p class="text-white"> This is my courses </p>
+        </AuthenticatedLayout>
     </Header>
 </template>

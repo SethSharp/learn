@@ -1,11 +1,12 @@
 <script setup>
-import CourseCard from '@/Components/CourseCard.vue';
-
+    import CourseCard from '@/Components/CourseCard.vue';
+    import ProfileCard from '@/Components/ProfileCard.vue';
     const props = defineProps(['lessons'])
     var selected = 'profile';
 </script>
 
 <template>
+    <ProfileCard name="Seth Sharp" email="sesharp@outlook.com"/>
     <div>
         <ul
             class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
@@ -31,6 +32,6 @@ import CourseCard from '@/Components/CourseCard.vue';
     </div>
 
     <main>
-        <CourseCard name="Larascape" :lessonCount="4" :userCount="100" :id="1"/>
+       <slot/>
     </main>
 </template>

@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\ShowDashboardController;
+use App\Http\Controllers\ShowAchievementsController;
+use App\Http\Controllers\ShowProfileController;
 use App\Http\Controllers\ShowCourseLessonsController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ShowCoursesController;
+use App\Http\Controllers\ShowMyCoursesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +30,13 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', ShowDashboardController::class)->middleware('auth', 'verified')->name('dashboard');
+Route::prefix('dashboard')->name('dashboard')->group(function() {
+    Route::middleware(['auth'])->group(function() {
+        Route::get('/profile', ShowProfileController::class);
+        Route::get('/mycourses', ShowMyCoursesController::class)->name('.courses');
+        Route::get('/achievements', ShowAchievementsController::class)->name('.achievements');
+    });
+});
 
 Route::prefix('courses')->name('courses.')->group(function() {
     Route::middleware(['auth'])->group(function() {
