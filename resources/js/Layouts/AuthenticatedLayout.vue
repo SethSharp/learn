@@ -6,10 +6,11 @@
 </script>
 
 <template>
-    <ProfileCard name="Seth Sharp" email="sesharp@outlook.com"/>
-    <div>
+
+    <div class="pl-12 pt-12">
+        <ProfileCard name="Seth Sharp" email="sesharp@outlook.com"/>
         <ul
-            class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+            class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400">
             <li class="mr-2">
                 <NavLink :href="route('dashboard.profile')" :active="route().current('dashboard.profile')">
                     Profile
@@ -29,6 +30,8 @@
     </div>
 
     <main>
-       <slot/>
+        <div class="pl-12 pt-6">
+            <slot />
+        </div>
     </main>
 </template>
