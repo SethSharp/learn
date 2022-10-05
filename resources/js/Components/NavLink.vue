@@ -1,12 +1,15 @@
 <script setup>
-import { Link } from '@inertiajs/inertia-vue3';
-
-const props = defineProps(['href']);
+    import { computed } from 'vue';
+    const props = defineProps(['href', 'active']);
+    const classes = computed(() => props.active ?
+    'inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300 border-b-2 border-orange' :
+    'inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300 border-b-2 border-transparent'
+);
 
 </script>
 
 <template>
-    <Link :href="href">
+    <a :href="href" :class="classes">
         <slot />
-    </Link>
+    </a>
 </template>

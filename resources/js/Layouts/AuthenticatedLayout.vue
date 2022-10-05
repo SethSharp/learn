@@ -1,8 +1,8 @@
 <script setup>
-    import CourseCard from '@/Components/CourseCard.vue';
+    import { Link } from '@inertiajs/inertia-vue3';
+    import NavLink from '@/Components/NavLink.vue';
     import ProfileCard from '@/Components/ProfileCard.vue';
-    const props = defineProps(['lessons'])
-    var selected = 'profile';
+    const props = defineProps(['lessons']);
 </script>
 
 <template>
@@ -11,22 +11,19 @@
         <ul
             class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
             <li class="mr-2">
-                <a href="#"
-                    class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">
+                <NavLink :href="route('dashboard.profile')" :active="route().current('dashboard.profile')">
                     Profile
-                </a>
+                </NavLink>
             </li>
             <li class="mr-2">
-                <a href="#"
-                    class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">
+                <NavLink :href="route('dashboard.courses')" :active="route().current('dashboard.courses')">
                     My Courses
-                </a>
+                </NavLink>
             </li>
             <li class="mr-2">
-                <a href="#"
-                    class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">
+                <NavLink :href="route('dashboard.achievements')" :active="route().current('dashboard.achievements')">
                     Achievements
-                </a>
+                </NavLink>
             </li>
         </ul>
     </div>
