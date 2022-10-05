@@ -9,7 +9,7 @@ import { Link } from '@inertiajs/inertia-vue3';
         <div class="min-h-screen">
             <nav class="">
                 <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto px-12">
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <!-- Logo -->
