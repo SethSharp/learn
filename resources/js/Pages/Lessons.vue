@@ -13,6 +13,18 @@
     changePlaceholder(1);
 </script>
 
+<style>
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+</style>
+
 <template>
     <AuthenticatedLayout>
         <h1 class="text-white text-4xl font-bold mx-12 py-6"> {{ name }} </h1>
@@ -48,8 +60,13 @@
                 <LessonCard v-for="(lesson, index) in lessons" @click="changePlaceholder(index)" :name="lesson.name"/>
             </div>
             <div class="w-2/5 pt-3">
-                <h1 class="text-cardText text-lg"> {{ placeholderName }} </h1>
-                <p class="text-gray-300 text-md"> {{ placeholderDesc }} </p>
+                <transition name="fade" mode="out-in">
+                    <div :key="placeholderDesc">
+                        <h1 class="text-cardText text-lg"> {{ placeholderName }} </h1>
+                        <p class="text-gray-300 text-md"> {{ placeholderDesc }} </p>
+                    </div>
+                </transition>
+
             </div>
         </div>
     </AuthenticatedLayout>
