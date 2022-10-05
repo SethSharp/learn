@@ -9,6 +9,7 @@ use App\Http\Controllers\ShowProfileController;
 use App\Http\Controllers\ShowMyCoursesController;
 use App\Http\Controllers\ShowAchievementsController;
 use App\Http\Controllers\ShowCourseLessonsController;
+use App\Http\Controllers\ShowMyCourseLessonsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,7 @@ Route::prefix('/dashboard')->name('dashboard')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::get('/profile', ShowProfileController::class)->name('.profile');
         Route::get('/mycourses', ShowMyCoursesController::class)->name('.courses');
+        Route::get('/mycourses/{id}', ShowMyCourseLessonsController::class)->name('.lessons');
         Route::get('/achievements', ShowAchievementsController::class)->name('.achievements');
     });
 });
