@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class ShowProfileController extends Controller
 {
-    public function __invoke(): Response {
+    public function __invoke(): Response
+    {
         if (Auth::user()) {
             return Inertia('Profile');
         }

@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 
 class ShowAchievementsController extends Controller
 {
-    public function __invoke(): Response {
+    public function __invoke(): Response
+    {
         return Inertia('Achievements');
     }
 }

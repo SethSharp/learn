@@ -1,14 +1,14 @@
 <?php
 
-use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\ShowAchievementsController;
-use App\Http\Controllers\ShowProfileController;
-use App\Http\Controllers\ShowCourseLessonsController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ShowCoursesController;
+use App\Http\Controllers\ShowProfileController;
 use App\Http\Controllers\ShowMyCoursesController;
+use App\Http\Controllers\ShowAchievementsController;
+use App\Http\Controllers\ShowCourseLessonsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,8 +30,8 @@ Route::get('/', function () {
     ]);
 });
 
-Route::prefix('/dashboard')->name('dashboard')->group(function() {
-    Route::middleware(['auth'])->group(function() {
+Route::prefix('/dashboard')->name('dashboard')->group(function () {
+    Route::middleware(['auth'])->group(function () {
         Route::get('/profile', ShowProfileController::class);
         Route::get('/mycourses', ShowMyCoursesController::class)->name('.courses');
         Route::get('/achievements', ShowAchievementsController::class)->name('.achievements');
@@ -41,7 +41,7 @@ Route::prefix('/dashboard')->name('dashboard')->group(function() {
 Route::get('/logout', [LogoutController::class, 'perform'])->middleware('auth', 'verified');
 
 Route::prefix('/courses')->name('courses.')->group(function () {
-    Route::middleware(['auth'])->group(function() {
+    Route::middleware(['auth'])->group(function () {
         Route::get('/all', ShowCoursesController::class)->name('course.show');
         Route::get('/all/{id}/lessons', ShowCourseLessonsController::class)->name('course.lessons');
     });

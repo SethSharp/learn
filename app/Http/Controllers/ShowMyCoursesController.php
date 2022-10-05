@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 
 class ShowMyCoursesController extends Controller
 {
-    public function __invoke(): Response {
+    public function __invoke(): Response
+    {
         return Inertia('MyCourses');
     }
 }
