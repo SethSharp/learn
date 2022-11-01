@@ -5,9 +5,5 @@
 </script>
 
 <template>
-    <Header>
-        <AuthenticatedLayout>
-            <p class="text-white"> This is the profile </p>
-        </AuthenticatedLayout>
-    </Header>
+    <p class="text-white"> This is the profile </p>
 </template>

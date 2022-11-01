@@ -1,21 +1,30 @@
 <script setup>
-    import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-    import Header from '@/Layouts/Header.vue';
     import CourseCard from '@/Components/CourseCard.vue';
-    import { Link } from '@inertiajs/inertia-vue3';
-    const props = defineProps(['courses']);
+    import LessonGrid from '../Components/LessonGrid.vue';
+    import { ref } from "vue"
+
+    const props = defineProps(['courses', 'lessons']);
+    var show = ref(false), index = ref(0);
+    const hide = () => {
+        show.value = !show.value;
+    }
+    const showLessons = (i) => {
+        hide();
+        index.value = i;
+    };
 </script>
 
 <template>
-    <Header>
-        <AuthenticatedLayout>
-            <div class="display flex flex-wrap justify-center md:justify-start">
-                <div v-for="course in courses">
-                    <Link :href="'/dashboard/mycourses/' + course.id">
-                        <CourseCard :name="course.name" :lessonCount="courses.lesson_count" :id="course.id" />
-                    </Link>
-                </div>
+    <div class="display flex flex-wrap justify-center md:justify-start">
+        <div v-if="show==false" v-for="(course, index) in courses">
+            <div @click="showLessons(index)">
+                <CourseCard :name="course.name" :lessonCount="courses.lesson_count" :id="course.id" />
             </div>
-        </AuthenticatedLayout>
-    </Header>
+        </div>
+        <div v-else class="w-full mr-12">
+            <div class="text-orange text-xl font-extrabold border-2 rounded-full border-orange
+                        px-1.5 w-8" @click="hide()"> &lt </div>
+            <LessonGrid :name="courses[index].name" :lessons="lessons[index]"></LessonGrid>
+        </div>
+    </div>
 </template>

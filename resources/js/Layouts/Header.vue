@@ -1,6 +1,7 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/inertia-vue3';
+    import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+    import { Link } from '@inertiajs/inertia-vue3';
+    const props = defineProps(['user']);
 </script>
 
 <template>
@@ -14,7 +15,7 @@ import { Link } from '@inertiajs/inertia-vue3';
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard.profile')">
+                                <Link href="/dashboard/courses">
                                 <ApplicationLogo class="block h-9 w-auto" />
                                 </Link>
                             </div>
@@ -27,8 +28,12 @@ import { Link } from '@inertiajs/inertia-vue3';
                                                     border border-transparent text-sm leading-4 font-medium rounded-md
                                                     text-white bg-orange hover:text-backgroundFrom
                                                     focus:outline-none transition ease-in-out duration-150">
-                                        <Link :href="route('logout')">
-                                        Logout
+
+                                        <Link v-if="user" :href="route('logout')">
+                                            Logout
+                                        </Link>
+                                        <Link v-else :href="route('login')">
+                                            Login
                                         </Link>
                                     </button>
                                 </span>

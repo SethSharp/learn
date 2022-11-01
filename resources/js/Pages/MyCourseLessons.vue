@@ -8,13 +8,6 @@
 
 <template>
     <Header>
-        <AuthenticatedLayout>
-            <p class="text-orange">
-                <Link href="/dashboard/mycourses">
-                    Back
-                </Link>
-            </p>
-            <LessonGrid :name="name" :lessons="lessons" />
-        </AuthenticatedLayout>
+        <LessonGrid :name="name" :lessons="lessons" />
     </Header>
 </template>

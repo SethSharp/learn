@@ -6,10 +6,12 @@ use Illuminate\Foundation\Application;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ShowCoursesController;
 use App\Http\Controllers\ShowProfileController;
+use App\Http\Controllers\ShowDashboardController;
 use App\Http\Controllers\ShowMyCoursesController;
 use App\Http\Controllers\ShowAchievementsController;
 use App\Http\Controllers\ShowCourseLessonsController;
 use App\Http\Controllers\ShowMyCourseLessonsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +35,10 @@ Route::get('/', function () {
 
 Route::prefix('/dashboard')->name('dashboard')->group(function () {
     Route::middleware(['auth'])->group(function () {
+        Route::get('/', ShowDashboardController::class)->name('.dashboard');
         Route::get('/profile', ShowProfileController::class)->name('.profile');
         Route::get('/mycourses', ShowMyCoursesController::class)->name('.courses');
-        Route::get('/mycourses/{id}', ShowMyCourseLessonsController::class)->name('.lessons');
+        Route::get('/mycourses/{course}', ShowMyCourseLessonsController::class)->name('.lessons');
         Route::get('/achievements', ShowAchievementsController::class)->name('.achievements');
     });
 });
@@ -53,7 +56,5 @@ Route::prefix('/courses')->name('courses.')->group(function () {
         Route::get('{lesson}/load', \App\Http\Controllers\Lessons\LoadLessonController::class)->name('.load');
     });
 });
-
-
 
 require __DIR__ . '/auth.php';

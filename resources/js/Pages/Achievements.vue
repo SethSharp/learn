@@ -4,9 +4,5 @@
 </script>
 
 <template>
-    <Header>
-        <AuthenticatedLayout>
-            <p class="text-white"> This is the achievements </p>
-        </AuthenticatedLayout>
-    </Header>
+    <p class="text-white"> This is achievements </p>
 </template>

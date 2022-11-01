@@ -15,8 +15,8 @@ module.exports = {
                 sans: ["Nunito", ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                backgroundFrom: "#030B10",
-                backgroundTo: "#071A25",
+                backgroundFrom: "#020B10",
+                backgroundTo: "#032030",
                 orange: "#F8590A",
                 card: "#0F1A25",
                 cardText: "#7398BD",
