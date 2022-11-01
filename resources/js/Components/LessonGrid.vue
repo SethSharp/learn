@@ -1,7 +1,7 @@
 <script setup>
     import {ref} from "vue";
     import LessonCard from "./LessonCard.vue";
-    const props = defineProps(['name','lessons']);
+    const props = defineProps(['name','lessons','user']);
     var placeholderName = ref('Default name');
     var placeholderDesc = ref('Default desc');
     const changePlaceholder = (i) => {
@@ -44,7 +44,7 @@
                                 <p class="text-gray-300 text-sm"> Beginner </p>
                             </div>
                         </div>
-                        <div class="p-4 w-32">
+                        <div v-if="user==true" class="p-4 w-32">
                             <div class="grid grid-rows-2 text-left">
                                 <p class="text-cardText text-md"> Progress </p>
                                 <div class="mt-3 w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">

@@ -6,6 +6,8 @@
 
 <template>
     <Header>
-        <LessonGrid :name="name" :lessons="lessons"/>
+        <div class="ml-12 mr-12">
+            <LessonGrid :name="name" :lessons="lessons"/>
+        </div>
     </Header>
 </template>

@@ -3,7 +3,7 @@
     import LessonGrid from '../Components/LessonGrid.vue';
     import { ref } from "vue"
 
-    const props = defineProps(['courses', 'lessons']);
+    const props = defineProps(['courses', 'lessons', 'user']);
     var show = ref(false), index = ref(0);
     const hide = () => {
         show.value = !show.value;
@@ -24,7 +24,7 @@
         <div v-else class="w-full mr-12">
             <div class="text-orange text-xl font-extrabold border-2 rounded-full border-orange
                         px-1.5 w-8" @click="hide()"> &lt </div>
-            <LessonGrid :name="courses[index].name" :lessons="lessons[index]"></LessonGrid>
+            <LessonGrid :name="courses[index].name" :lessons="lessons[index]" :user="user"></LessonGrid>
         </div>
     </div>
 </template>

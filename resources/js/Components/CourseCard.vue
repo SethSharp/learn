@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="pt-8">
-                <h1 class="text-white text-lg"> {{ name }} </h1>
+                <h1 class="text-white text-lg">{{ name }} </h1>
                 <h1 class="text-gray-300 pt-2 text-md"> {{ lessonCount }} Lessons </h1>
                 <h1 class="text-gray-300 pt-3 text-xs"> Beginner | {{ userCount }} students | Certificate included </h1>
                 <div class="mt-3 w-4/5 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">

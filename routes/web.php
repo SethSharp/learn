@@ -48,7 +48,7 @@ Route::get('/logout', [LogoutController::class, 'perform'])->middleware('auth', 
 Route::prefix('/courses')->name('courses.')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::get('/all', ShowCoursesController::class)->name('course.show');
-        Route::get('/all/{id}/lessons', ShowCourseLessonsController::class)->name('course.lessons');
+        Route::get('/all/{course}/lessons', ShowCourseLessonsController::class)->name('course.lessons');
     });
     Route::middleware('auth')->prefix('/{course}/lessons')->name('.lessons')->group(function () {
         Route::get('{lesson}', \App\Http\Controllers\Lessons\ShowLessonController::class)->name('.show');
