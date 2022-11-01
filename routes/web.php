@@ -25,17 +25,12 @@ use App\Http\Controllers\ShowMyCourseLessonsController;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return Inertia::render('Welcome');
 });
 
 Route::prefix('/dashboard')->name('dashboard')->group(function () {
     Route::middleware(['auth'])->group(function () {
-        Route::get('/', ShowDashboardController::class)->name('.dashboard');
+        Route::get('/s', ShowDashboardController::class)->name('.dashboard');
         Route::get('/profile', ShowProfileController::class)->name('.profile');
         Route::get('/mycourses', ShowMyCoursesController::class)->name('.courses');
         Route::get('/mycourses/{course}', ShowMyCourseLessonsController::class)->name('.lessons');
