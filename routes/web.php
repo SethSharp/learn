@@ -30,7 +30,7 @@ Route::get('/', function () {
 
 Route::prefix('/dashboard')->name('dashboard')->group(function () {
     Route::middleware(['auth'])->group(function () {
-        Route::get('/s', ShowDashboardController::class)->name('.dashboard');
+        Route::get('/', ShowDashboardController::class)->name('.dashboard');
         Route::get('/profile', ShowProfileController::class)->name('.profile');
         Route::get('/mycourses', ShowMyCoursesController::class)->name('.courses');
         Route::get('/mycourses/{course}', ShowMyCourseLessonsController::class)->name('.lessons');
