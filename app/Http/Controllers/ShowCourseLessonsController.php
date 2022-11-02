@@ -7,8 +7,9 @@ use App\Models\Lesson;
 use Illuminate\Support\Facades\Auth;
 class ShowCourseLessonsController extends Controller
 {
-    public function __invoke(Course $course)
+    public function __invoke($course_name)
     {
+        $course = Course::firstwhere('name', $course_name);
         $lessons = Lesson::where('course_id', $course->id)->get();
         return Inertia('Lessons', [
             // TODO: name as slug (not id)
