@@ -18,7 +18,7 @@
 <template>
     <Header :user="user">
         <AuthenticatedLayout/>
-        <div class="pl-12 pt-6">
+        <div class="pl-6 pr-6 sm:pl-12 pt-6">
             <ul class="flex flex-wrap
                     text-sm font-medium text-center
                     text-gray-500 border-b border-gray-200 dark:text-gray-400">

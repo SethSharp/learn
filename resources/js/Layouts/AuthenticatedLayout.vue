@@ -6,7 +6,7 @@
 </script>
 
 <template>
-    <div class="pl-12 pt-12">
+    <div class="">
         <ProfileCard name="Seth Sharp" email="sesharp@outlook.com"/>
     </div>
 </template>

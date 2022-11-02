@@ -26,12 +26,16 @@
 <template>
     <div class="w-full">
         <h1 class="text-white text-4xl font-bold py-6"> {{ name }} </h1>
-        <div class="bg-card rounded-3xl display flex flex-wrap justify-center p-4">
-            <div class="bg-black rounded-3xl h-32 w-1/5"> </div>
-            <div class="w-4/5">
+        <div class="bg-card rounded-3xl display flex flex-wrap justify-center sm:justify-start p-4">
+            <!-- Course image (Not lesson image) -->
+            <div class="p-8">
+                <img class="w-44 h-32 object-cover my-auto" src="../../../public/images/placeholder.png"/>
+            </div>
+            <!-- Lesson count, level and progress section -->
+            <div class="my-auto">
                 <div class="w-full h-full">
                     <div class="float-left my-6
-                                grid grid-cols-3 mx-auto text-center divide-x">
+                                grid grid-cols-2 sm:grid-cols-3 mx-auto text-center sm:divide-x">
                         <div class="p-4">
                             <div class="grid grid-rows-2 text-left">
                                 <p class="text-cardText text-md"> Lessons </p>
@@ -53,24 +57,24 @@
                             </div>
                         </div>
                     </div>
-                    <div class="float-right">
+                    <!-- <div class="sm:float-right">
                         <button class=" bg-orange text-white
                                         px-4 py-2 rounded-xl my-10 mr-8
                                         hover:text-backgroundFrom focus:outline-none transition ease-in-out duration-150"> Play Demo
                         </button>
-                    </div>
+                    </div> -->
                 </div>
-
             </div>
         </div>
+        <!-- Displays all lessons and description -->
         <div class="display flex flex-wrap pt-8">
-            <div class="flex flex-wrap w-3/5 sm:justify-start justify-center">
+            <div class="flex flex-wrap sm:w-3/5 justify-center sm:justify-start">
                 <LessonCard v-for="(lesson, index) in lessons" @click="changePlaceholder(index)"/>
             </div>
-            <div class="w-2/5 pt-3">
+            <div class="sm:w-2/5 pt-3 w-full">
                 <transition name="fade" mode="out-in">
-                    <div :key="placeholderDesc">
-                        <h1 class="text-cardText text-lg"> {{ placeholderName }} </h1>
+                    <div :key="placeholderDesc" class="pl-6 sm:pl-2">
+                        <h1 class="text-cardText text-3xl"> {{ placeholderName }} </h1>
                         <p class="text-gray-300 text-md"> {{ placeholderDesc }} </p>
                     </div>
                 </transition>
