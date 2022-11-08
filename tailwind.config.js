@@ -20,6 +20,7 @@ module.exports = {
                 orange: "#F8590A",
                 card: "#0F1A25",
                 cardText: "#7398BD",
+                defaultCyan: "#67e8f9",
             },
         },
     },
