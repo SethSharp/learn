@@ -47,7 +47,7 @@ Route::prefix('/courses')->name('courses.')->group(function () {
     });
     Route::middleware('auth')->prefix('/{course}/lessons')->name('.lessons')->group(function () {
         Route::get('{lesson}', \App\Http\Controllers\Lessons\ShowLessonController::class)->name('.show');
-        Route::post('{lesson}/save', \App\Http\Controllers\Lessons\SaveLessonController::class)->name('.save');
+        Route::post('{lesson}/save', \App\Http\Controllers\Lessons\SaveLessonController::class)->name('s.ave');
         Route::get('{lesson}/load', \App\Http\Controllers\Lessons\LoadLessonController::class)->name('.load');
     });
 });

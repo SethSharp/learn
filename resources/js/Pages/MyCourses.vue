@@ -24,7 +24,7 @@
         <div v-else class="w-full mr-12">
             <div class="text-orange text-xl font-extrabold border-2 rounded-full border-orange
                         px-1.5 w-8" @click="hide()"> &lt </div>
-            <LessonGrid :name="courses.name" :lessons="courses[index].lessons" :user="user"></LessonGrid>
+            <LessonGrid :name="courses[index].name" :lessons="courses[index].lessons" :user="user"></LessonGrid>
         </div>
     </div>
 </template>

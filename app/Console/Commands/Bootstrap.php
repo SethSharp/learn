@@ -30,28 +30,25 @@ class Bootstrap extends Command
                 'description' => 'Lesson 3',
             ],
         ];
-        $courses = [
-            [
-                'name' => 'Larascape',
-                'description' => 'Interactive game to learn Laravel',
-                'lessons' => $lessons
-            ],
+        $course = [
+            'name' => 'Larascape',
+            'description' => 'Interactive game to learn Laravel',
+            'lessons' => $lessons
         ];
 
-        foreach ($courses as $data) {
-            $course = Course::firstOrCreate([
-               'name' => $data['name'],
-               'description' => $data['description'],
-            ]);
+        $course = Course::firstOrCreate([
+            'name' => $course['name'],
+            'description' => $course['description'],
+        ]);
 
-            foreach ($data['lessons'] as $index => $lesson) {
-                $course->lessons()->firstOrCreate([
-                    'name' => $lesson['name'],
-                    'description' => $lesson['description'],
-                    'index' => $index + 1,
-                ]);
-            }
+        foreach ($lessons as $index => $lesson) {
+            $course->lessons()->firstOrCreate([
+                'name' => $lesson['name'],
+                'description' => $lesson['description'],
+                'index' => $index + 1,
+            ]);
         }
+
         return 0;
     }
 }
