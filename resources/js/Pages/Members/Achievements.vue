@@ -1,8 +1,6 @@
 <script setup>
-    import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-    import Header from '@/Layouts/Header.vue';
-    import AchievementIcon from '@/Components/AchievementIcon.vue';
-    import LessonAchievement from '@/Components/LessonAchievement.vue';
+    import AchievementIcon from '@/Components/Members/Achievements/AchievementIcon.vue';
+    import LessonAchievement from '@/Components/Members/Achievements/LessonAchievement.vue';
 
     let achievements = new Array(30).fill('hello');
 </script>

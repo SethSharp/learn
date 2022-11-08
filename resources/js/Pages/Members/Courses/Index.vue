@@ -1,9 +1,9 @@
 <script setup>
-    import CourseCard from '@/Components/CourseCard.vue';
-    import LessonGrid from '../Components/LessonGrid.vue';
+    import CourseCard from '@/Components/Public/Courses/CourseCard.vue';
+    import LessonGrid from '@/Components/Public/Lessons/LessonGrid.vue';
     import { ref } from "vue"
 
-    const props = defineProps(['courses', 'lessons', 'user']);
+    const props = defineProps(['courses', 'user']);
     var show = ref(false), index = ref(0);
     const hide = () => {
         show.value = !show.value;

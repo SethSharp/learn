@@ -1,5 +1,5 @@
 <script setup>
-    import ProfileCard from '@/Components/ProfileCard.vue';
+    import ProfileCard from '@/Components/Members/Profile/ProfileCard.vue';
 </script>
 
 <template>

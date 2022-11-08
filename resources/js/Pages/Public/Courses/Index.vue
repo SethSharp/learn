@@ -1,6 +1,6 @@
 <script setup>
     import Header from '@/Layouts/Header.vue';
-    import CourseCard from '@/Components/CourseCard.vue';
+    import CourseCard from '@/Components/Public/Courses/CourseCard.vue';
     import { Link } from '@inertiajs/inertia-vue3';
 
     let props = defineProps(['courses']);

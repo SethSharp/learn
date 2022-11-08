@@ -18,7 +18,7 @@
         <div class="bg-card rounded-3xl display flex flex-wrap justify-center sm:justify-start p-4">
             <!-- Course image (Not lesson image) -->
             <div class="p-8">
-                <img class="w-44 h-32 object-cover my-auto" src="../../../public/images/placeholder.png"/>
+                <img class="w-44 h-32 object-cover my-auto" src="../../../../../public/images/placeholder.png"/>
             </div>
             <!-- Lesson count, level and progress section -->
             <div class="my-auto">
@@ -67,6 +67,7 @@
                             <p class="text-gray-300 text-md"> {{ placeholderDesc }} </p>
                         </div>
                 </Transition>
+                <div v-if="!user"> Play </div>
             </div>
         </div>
     </div>
