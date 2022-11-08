@@ -41,7 +41,7 @@
             <div class="mt-3">
                 <Profile v-if="page=='profile'"></Profile>
                 <MyCourses v-if="page=='courses'" :courses="courses" :lessons="lessons" :user="user"></MyCourses>
-                <Achievements v-if="page=='achievements'"></Achievements>
+                <Achievements v-if="page=='achievements'"/>
             </div>
         </div>
     </Header>
