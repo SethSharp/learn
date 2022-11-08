@@ -2,7 +2,7 @@
     import Header from '@/Layouts/Header.vue';
     import CourseCard from '@/Components/CourseCard.vue';
     import { Link } from '@inertiajs/inertia-vue3';
-    import {ref} from 'vue';
+
     let props = defineProps(['courses']);
 </script>
 
@@ -16,7 +16,6 @@
                                 :userCount="course.user_count" :id="course.id"/>
                 </Link>
             </div>
-
         </div>
     </Header>
 </template>

@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
 use Inertia\Response;
 use App\Models\Course;
-use Illuminate\Http\Request;
 
 class ShowMyCoursesController extends Controller
 {

@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Inertia\Response;
 use App\Models\Course;
-use App\Models\Lesson;
-use Illuminate\Http\Request;
 
 class ShowDashboardController extends Controller
 {

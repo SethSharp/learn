@@ -1,6 +1,7 @@
 <script setup>
     import Header from '@/Layouts/Header.vue';
     import LessonGrid from '@/Components/LessonGrid.vue';
+
     const props = defineProps(['name', 'lessons']);
 </script>
 

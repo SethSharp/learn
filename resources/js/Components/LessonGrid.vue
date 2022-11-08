@@ -1,6 +1,7 @@
 <script setup>
     import {ref} from "vue";
     import LessonCard from "./LessonCard.vue";
+
     const props = defineProps(['name','lessons','user']);
     var placeholderName = ref('Default name');
     var placeholderDesc = ref('Default desc');

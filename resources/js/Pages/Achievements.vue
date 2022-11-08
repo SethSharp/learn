@@ -4,7 +4,6 @@
     import AchievementIcon from '@/Components/AchievementIcon.vue';
     import LessonAchievement from '@/Components/LessonAchievement.vue';
 
-    //var achievements = ['1','2','3','4','5','6','7','8','9','10'];
     let achievements = new Array(30).fill('hello');
 </script>
 
