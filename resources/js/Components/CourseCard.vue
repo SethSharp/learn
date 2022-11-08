@@ -1,5 +1,4 @@
 <script setup>
-    import { Link } from '@inertiajs/inertia-vue3';
     let props = defineProps(['name', 'lessonCount', 'userCount', 'id']);
 </script>
 

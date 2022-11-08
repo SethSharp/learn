@@ -32,25 +32,10 @@ class Bootstrap extends Command
         ];
         $courses = [
             [
-                'name' => 'Bootcamp',
-                'description' => 'Bootcamp',
-                'lessons' => $lessons
-            ],
-            [
                 'name' => 'Larascape',
                 'description' => 'Interactive game to learn Laravel',
                 'lessons' => $lessons
             ],
-            [
-                'name' => 'Vue Raider',
-                'description' => 'Interactive game to learn Vue Raider',
-                'lessons' => $lessons
-            ],
-            [
-                'name' => 'Inertia',
-                'description' => 'Interactive game to learn Inertia',
-                'lessons' => $lessons
-            ]
         ];
 
         foreach ($courses as $data) {

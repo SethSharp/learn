@@ -13,7 +13,6 @@ class Lesson extends Model
     use SoftDeletes;
 
     protected $guarded = [];
-    protected $fillable = ['name', 'description'];
 
     public function course()
     {

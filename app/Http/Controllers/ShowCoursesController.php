@@ -9,9 +9,8 @@ class ShowCoursesController extends Controller
 {
     public function __invoke(): Response
     {
-        $courses = Course::withCount('lessons')->get();
         return Inertia('Courses', [
-            'courses' => $courses
+            'courses' => Course::withCount('lessons')->get()
         ]);
     }
 }

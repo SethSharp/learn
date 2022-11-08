@@ -6,7 +6,7 @@
 
 <template>
     <!--  -->
-    <div class="bg-gradient-to-br from-backgroundFrom to-backgroundTo">
+    <div class="bg-gradient-to-br from-[#020B10] to-[#032030]">
         <div class="min-h-screen">
             <nav class="">
                 <!-- Primary Navigation Menu -->
@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </nav>
-            
+
             <!-- Page Heading -->
             <header class="bg-white shadow" v-if="$slots.header">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">

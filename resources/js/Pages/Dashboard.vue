@@ -6,17 +6,16 @@
     import MyCourses from './MyCourses.vue';
     import Achievements from './Achievements.vue';
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-    const props = defineProps(['courses', 'lessons', 'user']);
 
+    const props = defineProps(['courses', 'lessons']);
     var page = ref('profile');
-
     const changePlaceholder = (str) => {
         page.value = str;
     };
 </script>
 
 <template>
-    <Header :user="user">
+    <Header :user="true">
         <AuthenticatedLayout/>
         <div class="pl-6 pr-6 sm:pl-12 pt-6">
             <ul class="flex flex-wrap
@@ -40,7 +39,7 @@
             </ul>
             <div class="mt-3">
                 <Profile v-if="page=='profile'"></Profile>
-                <MyCourses v-if="page=='courses'" :courses="courses" :lessons="lessons" :user="user"></MyCourses>
+                <MyCourses v-if="page=='courses'" :courses="courses" :lessons="lessons"></MyCourses>
                 <Achievements v-if="page=='achievements'"/>
             </div>
         </div>

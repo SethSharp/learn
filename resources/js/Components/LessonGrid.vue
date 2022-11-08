@@ -11,18 +11,6 @@
     changePlaceholder(0);
 </script>
 
-<style>
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 0.5s ease-out;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-    opacity: 0;
-}
-</style>
-
 <template>
     <div class="w-full">
         <h1 class="text-white text-4xl font-bold py-6"> {{ name }} </h1>
@@ -57,12 +45,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="sm:float-right">
-                        <button class=" bg-orange text-white
-                                        px-4 py-2 rounded-xl my-10 mr-8
-                                        hover:text-backgroundFrom focus:outline-none transition ease-in-out duration-150"> Play Demo
-                        </button>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -72,13 +54,18 @@
                 <LessonCard v-for="(lesson, index) in lessons" @click="changePlaceholder(index)"/>
             </div>
             <div class="sm:w-2/5 pt-3 w-full">
-                <transition name="fade" mode="out-in">
-                    <div :key="placeholderDesc" class="pl-6 sm:pl-2">
-                        <h1 class="text-cardText text-3xl"> {{ placeholderName }} </h1>
-                        <p class="text-gray-300 text-md"> {{ placeholderDesc }} </p>
-                    </div>
-                </transition>
-
+                <Transition
+                    enter-active-class="transition: opacity duration-300 ease-out"
+                    enter-from-class="opacity-0"
+                    leave-active-class="transition: opacity duration-300 ease-out"
+                    leave-to-class="opacity-0"
+                    mode="out-in"
+                    >
+                        <div :key="placeholderDesc" class="pl-6 sm:pl-2">
+                            <h1 class="text-cardText text-3xl"> {{ placeholderName }} </h1>
+                            <p class="text-gray-300 text-md"> {{ placeholderDesc }} </p>
+                        </div>
+                </Transition>
             </div>
         </div>
     </div>
