@@ -40,28 +40,12 @@
                             Let there be light: You turned on the lights
                         </h3>
                     </div>
-                    <div class="mt-3">
+                    <div class="pt-4">
                         <div class="absolute w-5 h-5 border-2 mt-1 border-defaultCyan bg-card rounded-full -left-3 "> </div>
                         <h3 class="text-lg font-bold text-gray-900 dark:text-white pl-4">
                             Open sesame: Successfully opened the door
                         </h3>
                     </div>
-
-                    <div class="absolute w-4 h-4 rounded-full mt-5 -left-2.5 bg-defaultCyan"> </div>
-                    <div class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500
-                                flex mt-3.5 pl-4">
-                        <div class="bg-defaultCyan p-2 font-black text-card w-fit"> Vue Raider </div>
-                        <div class="p-2 w-fit text-white font-black">  </div>
-                    </div>
-
-                    <div class="mt-3">
-                        <div class="absolute w-5 h-5 border-2 mt-1 border-defaultCyan bg-card rounded-full -left-3 "> </div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white pl-4">
-                            Successfully entered the tomb
-                        </h3>
-                    </div>
-
-
                 </li>
             </ol>
         </div>
