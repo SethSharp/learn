@@ -12,7 +12,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Nunito", ...defaultTheme.fontFamily.sans],
+                sans: ["Inter var", ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 orange: "#F8590A",
@@ -22,6 +22,9 @@ module.exports = {
             },
         },
     },
-
-    plugins: [require("@tailwindcss/forms")],
+    variants: {
+        extend: {
+            visibility: ["group-hover"],
+        },
+    },
 };

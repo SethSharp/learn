@@ -7,15 +7,13 @@
 </script>
 
 <template>
-    <Header>
-        <h1 class="text-white text-4xl font-bold mx-12 py-6"> All courses</h1>
-        <div class="display flex justify-center md:justify-start flex-wrap mx-12">
-            <div v-for="course in courses">
-                <Link :href="'/courses/all/' + course.id + '/lessons'" >
-                    <CourseCard :name="course.name" :lessonCount="course.lessons_count"
-                                :userCount="course.user_count" :id="course.id"/>
-                </Link>
-            </div>
+    <h1 class="text-white text-4xl font-bold mx-12 py-6"> All courses</h1>
+    <div class="display flex justify-center md:justify-start flex-wrap mx-12">
+        <div v-for="course in courses">
+            <Link :href="'/courses/all/' + course.id + '/lessons'">
+                <CourseCard :name="course.name" :lessonCount="course.lessons_count"
+                            :userCount="course.user_count" :id="course.id"/>
+            </Link>
         </div>
-    </Header>
+    </div>
 </template>

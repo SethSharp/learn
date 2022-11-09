@@ -29,11 +29,8 @@
                                                     text-white bg-orange hover:text-backgroundFrom
                                                     focus:outline-none transition ease-in-out duration-150">
 
-                                        <Link v-if="user" :href="route('logout')">
+                                        <Link :href="route('logout')">
                                             Logout
-                                        </Link>
-                                        <Link v-else :href="route('login')">
-                                            Login
                                         </Link>
                                     </button>
                                 </span>
